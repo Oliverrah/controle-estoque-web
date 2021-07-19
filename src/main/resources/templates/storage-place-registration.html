@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Controle Web - Cadastro de Armazenamento</title>
+</head>
+
+<body>
+    <div class="container-outside">
+        <header>
+            <div class="container-header">
+                <div class="container-header-logout">
+                    <span>Bem vindo, <strong th:text="${session.user.getFirstName()}"></strong></span>
+                    <form th:action="@{/logout}" method="post">
+    					<input type="submit" value="Sair" class="logout link">
+					</form>
+                </div>
+            </div>
+        </header>
+        <div class="container-inside">
+            <div class="container-inside-sidebar">
+                <nav class="container-inside-sidebar-nav">
+                    <div class="container-inside-sidebar-nav-container">
+                        <svg class="inside-pages-icon">
+                            <use xlink:href="images/sprite.svg#icon-box"></use>
+                        </svg>
+                        <a href="products" class="link"><span class="container-inside-sidebar-nav-list-parent">Produtos</span></a>                       
+                    </div>
+
+                    <div class="container-inside-sidebar-nav-container">
+                        <svg class="inside-pages-icon">
+                            <use xlink:href="images/sprite.svg#icon-box-filled"></use>
+                        </svg>
+                        <a href="categories" class="link"><span class="container-inside-sidebar-nav-list-parent">Categorias</span></a>                       
+                    </div>
+
+                    <div class="container-inside-sidebar-nav-container">
+                        <svg class="inside-pages-icon truck">
+                            <use xlink:href="images/sprite.svg#icon-truck"></use>
+                        </svg>
+                        <a href="providers" class="link"><span class="container-inside-sidebar-nav-list-parent">Fornecedores</span></a>                           
+                    </div>
+                    <ul class="container-inside-sidebar-nav-list">
+                        <div class="container-inside-sidebar-nav-container">
+                            <svg class="inside-pages-icon">
+                                <use xlink:href="images/sprite.svg#icon-streetsign"></use>
+                            </svg>
+                            <a href="storagePlaces" class="link"><span class="container-inside-sidebar-nav-list-parent">Locais Armazenamento</span></a>
+                        </div>
+                        
+                        <a href="storagePlaces" class="link"><li class="container-inside-sidebar-nav-list-item">Listagem de Locais</li></a>
+                        <a href="showStoragePlaceForm" class="link"><li class="container-inside-sidebar-nav-list-item" style="background-color: #244661;" >Cadastro de Local</li></a>
+                    </ul>
+                    <div class="container-inside-sidebar-nav-container">
+                        <svg class="inside-pages-icon">
+                            <use xlink:href="images/sprite.svg#icon-document-list"></use>
+                        </svg>
+                        <a href="#" class="link"><span class="container-inside-sidebar-nav-list-parent">Relatorios</span></a>                       
+                    </div>
+
+                    <div class="container-inside-sidebar-nav-container">
+                        <svg class="inside-pages-icon">
+                            <use xlink:href="images/sprite.svg#icon-trending_up"></use>
+                        </svg>
+                        <a href="dashboard" class="link"><span class="container-inside-sidebar-nav-list-parent">Dashboard</span></a>                       
+                    </div>
+                </nav>
+            </div>
+
+            <div class="container-inside-register">
+                <h2 class="container-inside-register-title">Cadastro de Locais de Armazenamento</h2>
+
+                <form action="#" th:action="@{/addStoragePlace}" th:object="${storagePlace}" method="GET" class="container-inside-register-form">
+
+					<input type="hidden" th:field="*{id}">
+
+                    <div class="container-inside-register-form-input">
+                        <label for="locationName">Nome do local: </label>
+                        <input type="text" th:field="*{locationName}">
+                        <span th:if="${#fields.hasErrors('locationName')}" th:errors="*{locationName}" class="error"></span>
+                    </div>
+   
+                    <div class="container-inside-register-form-prices">                                                      
+                        <div>
+                            <label for="adressZipCode">CEP: </label>
+                            <input type="text" th:field="*{adressZipCode}">
+                            <span th:if="${#fields.hasErrors('adressZipCode')}" th:errors="*{adressZipCode}" class="error"></span>
+                        </div>
+
+                        <div>
+                            <label for="uf">UF: </label>
+                            <select th:field="*{uf}">
+                            	<option th:selected="selected" value="">Selecione a UF</option>
+                                <option th:value="PB">PB</option>
+                                <option th:value="MG">MG</option>
+                            </select>
+                            <span th:if="${#fields.hasErrors('uf')}" th:errors="*{uf}" class="error"></span>
+                        </div>
+
+                        <div>
+                            <label for="city">Cidade: </label>
+                            <input type="text" th:field="*{city}">
+                            <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}" class="error"></span>
+                        </div>                                 
+                    </div>
+
+                    <div class="container-inside-register-form-input">
+                        <label for="adressStreet">Logradouro: </label>
+                        <input type="text" th:field="*{adressStreet}">
+                        <span th:if="${#fields.hasErrors('adressStreet')}" th:errors="*{adressStreet}" class="error"></span>
+                    </div>
+
+                    <div class="container-inside-register-form-input">
+                        <label for="adressNumber">Número: </label>
+                        <input type="text" th:field="*{adressNumber}">
+                        <span th:if="${#fields.hasErrors('adressNumber')}" th:errors="*{adressNumber}" class="error"></span>
+                        <span th:if="${registrationError != null}" class="error-big">Não foi possível realizar o cadastro, já existe um local de armazenamento com esse nome.</span>
+                    </div>
+                 
+					<input type="hidden" name="userId" th:value="${session.user.getId()}">
+					
+                    <div class="container-inside-register-form-submit">
+                        <input type="submit" value="Gravar" class="btn-inside">                      
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

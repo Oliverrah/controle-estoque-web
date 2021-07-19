@@ -1,0 +1,180 @@
+@mixin btn-inside{
+    font-size: 1.5rem;
+    width: 40%;
+    border-radius: 1rem;
+    border: 1px solid var(--color-primary-dark-3);
+    text-transform: uppercase;
+    background-color: var(--color-primary-dark-3);
+    box-shadow: 5px 5px 10px -2px rgba(0,0,0,0.8);
+    color: var(--color-white);
+}
+
+.btn{
+    width: 100%;
+    padding: 1.7rem;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    background-color: var(--color-primary-dark-2);
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: var(--color-primary-dark-1);
+}
+
+.btn-inside{
+    @include btn-inside;
+}
+.btn-inside:hover{
+    background-color: var(--color-primary-dark-2);
+}
+
+.btn-link-inside{
+    @include btn-inside;
+
+    padding: .5rem;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-link-inside:hover{
+    background-color: var(--color-primary-dark-2);
+}
+
+.link{
+    text-decoration: none;
+    color: var(--color-light-grey);
+
+}
+
+.link:hover{  
+    color: var(--color-black);
+    text-decoration: underline;
+}
+
+.link-form{ 
+    text-decoration: underline;
+    color: lighten(#000, 30);
+  
+}
+
+.link-form:hover{
+    color: var(--color-black);
+}
+
+.entrie{
+    background-color: var(--color-red);
+}
+
+.exit{
+    background-color: var(--color-green);
+}
+
+.itens-entrie{
+    background-color: var(--color-orange);
+}
+
+.itens-exit{
+    background-color: var(--color-dark-orange);
+}
+
+.container-error{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    margin-top: .5rem;
+}
+
+
+.error{
+    color: red;
+    font-style: italic;
+    font-size: 1.3rem;
+    align-self: flex-start;
+    margin-left: 1rem;
+}
+
+.error-big{
+    color: red;
+    font-size: 1.2em;
+    font-style: italic;
+    align-self: center;
+}
+
+.logout{
+    cursor: pointer;
+    border: none;
+    background-color: inherit;
+    align-self: center;
+    text-decoration: underline;
+    margin-top: 1rem
+}
+
+.search-container{
+   margin: auto;
+   width: 60%;
+   display: flex;
+   margin-top: 8rem;
+   font-size: 1.5rem;
+    &-form{      
+        display: flex;
+        width: 100%;
+        padding: 1rem;
+        &-text{
+            flex: 0 0 20%;
+            align-self: center;
+        }
+
+        &-input{
+            flex: 0 0 70%;       
+            margin-right: 1rem;
+        }
+
+        &-submit{
+           flex: 0 0 10%;
+           padding: .4rem;
+        }
+    }
+}
+
+.inside-pages-icon{
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: var(--color-white);
+    margin-left: 1rem;
+
+   
+}
+
+.truck{
+    fill: var(--color-light-grey);
+}
+
+
+.table-icon{
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: var(--color-black);
+}
+
+.delete{
+    fill: red;
+}
+
+
+
+
+//HIDDING SPIN ARROWS FOR INPUT NUMBERS
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

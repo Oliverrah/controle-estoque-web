@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+  
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <title>Controla Web - Login</title>
+</head>
+<body>
+   <div class="container-outside-login">
+        <div class="container-inside-login">
+            <h2 class="container-inside-login-title">Bem vindo, faça seu login</h2>
+            <div class="container-inside-login-form">
+                <form action="#" th:action="@{/authenticateUser}" method="POST">
+                    <div class="container-inside-login-form-element">
+                        <label for="user">
+                            <svg class="icon user-icon">
+                                <use xlink:href="images/sprite.svg#icon-user"></use>
+                            </svg>
+                        </label>
+                        <input type="text" name="username" id="user" placeholder="Usuário" class="input-user">  
+                    </div>
+                    <div class="container-inside-login-form-element"> 
+                        <label for="user">
+                            <svg class="icon user-icon">
+                                <use xlink:href="images/sprite.svg#icon-key"></use>
+                            </svg>
+                        </label>               
+                        <input type="password" name="password" id="password" placeholder="Senha" class="input-password">                   
+                    </div>
+                    
+                    <div th:if="${param.error != null}" class="container-error">
+                    	<span class="error-big">Usuário e/ou senha incorreta</span>
+                    </div>
+                    
+                    <div class="container-inside-login-form-links">
+                        <span><a href="#" class="link-form">Esqueceu sua senha?</a></span>
+                        <span><a href="showUserForm" class="link-form">Cadastre-se</a></span>
+                    </div>                                
+                    
+                    <div class="container-inside-login-form-submit">
+                        <input type="submit" value="Login" class="btn">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

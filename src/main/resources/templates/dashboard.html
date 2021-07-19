@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br" 
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Controla Web - Home</title>
+</head>
+<body>
+    <div class="container-outside-dashboard">
+        <header>
+            <div class="container-header">
+                <nav class="container-header-nav">
+                    <ul class="container-header-list">
+                        <a href="#"><li class="container-header-list-item">DASHBOARD</li></a>
+                        <a href="products"><li class="container-header-list-item">PRODUTOS</li></a>
+                        <a href="categories"><li class="container-header-list-item">CATEGORIAS</li></a>
+                        <a href="providers"><li class="container-header-list-item">FORNECEDOR</li></a>
+                        <a href="storagePlaces"><li class="container-header-list-item">ARMAZENAMENTO</li></a>               
+                        <a href="#"><li class="container-header-list-item">RELATORIOS</li></a>
+                        <a href="stock"><li class="container-header-list-item">ESTOQUE</li></a>
+                    </ul>             
+                </nav>
+
+                <div class="container-header-logout">
+                    <span>Bem vindo, <strong th:text="${session.user.getFirstName()}"></strong></span>
+                    <form th:action="@{/logout}" method="post">
+    					<input type="submit" value="Sair" class="logout link">
+					</form>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <h1 class="dashboard-title">DASHBOARD</h1>
+            <div class="container-dashboard-top">
+                <div class="container-dashboard-top-box entrie">
+                    <span class="container-dashboard-top-box-title">Total entradas em R$:</span>
+
+                    <span class="container-dashboard-top-box-result">R$: 1900,00</span>
+                </div>
+            
+                <div class="container-dashboard-top-box exit">
+                    <span class="container-dashboard-top-box-title">Total saídas em R$:</span>
+
+                    <span class="container-dashboard-top-box-result">R$: 1900,00</span>
+                </div>
+
+                <div class="container-dashboard-top-box itens-entrie">
+                    <span class="container-dashboard-top-box-title">Total entradas em unidade:</span>
+
+                    <span class="container-dashboard-top-box-result">520 UND</span>
+                </div>
+
+                <div class="container-dashboard-top-box itens-exit">
+                    <span class="container-dashboard-top-box-title">Total saídas em unidade:</span>
+
+                    <span class="container-dashboard-top-box-result">800 UND</span>
+                </div>
+            </div>
+            <hr>
+            <h2 class="dashboard-title">TOP 5 PRODUTOS QUE TIVERAM MAIS SAÍDA</h2>
+            <div class="container-dashboard-products">
+            
+                <a href="#" class="link">
+                    <div class="container-dashboard-products-item">
+                    
+                        <img src="images/heineken.png" alt="heineken" class="container-dashboard-products-item-img">
+                        <span class="container-dashboard-products-item-name">Heineken</span>
+                        <span class="container-dashboard-products-item-price">Preço unitário: R$ 7,00</span>
+                    </div>
+                </a>
+                <a href="#" class="link">
+                    <div class="container-dashboard-products-item">
+                    
+                        <img src="images/heineken.png" alt="heineken" class="container-dashboard-products-item-img">
+                        <span class="container-dashboard-products-item-name">Heineken</span>
+                        <span class="container-dashboard-products-item-price">Preço unitário: R$ 7,00</span>
+                    </div>
+                </a>
+                <a href="#" class="link">
+                    <div class="container-dashboard-products-item">
+                    
+                        <img src="images/heineken.png" alt="heineken" class="container-dashboard-products-item-img">
+                        <span class="container-dashboard-products-item-name">Heineken</span>
+                        <span class="container-dashboard-products-item-price">Preço unitário: R$ 7,00</span>
+                    </div>
+                </a>
+                <a href="#" class="link">
+                    <div class="container-dashboard-products-item">
+                    
+                        <img src="images/heineken.png" alt="heineken" class="container-dashboard-products-item-img">
+                        <span class="container-dashboard-products-item-name">Heineken</span>
+                        <span class="container-dashboard-products-item-price">Preço unitário: R$ 7,00</span>
+                    </div>
+                </a>
+                <a href="#" class="link">
+                    <div class="container-dashboard-products-item">
+                    
+                        <img src="images/heineken.png" alt="heineken" class="container-dashboard-products-item-img">
+                        <span class="container-dashboard-products-item-name">Heineken</span>
+                        <span class="container-dashboard-products-item-price">Preço unitário: R$ 7,00</span>
+                    </div>
+                </a>
+                
+            </div>
+        </main>
+    </div>
+</body>
+</html>

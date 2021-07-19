@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controla Web - Produtos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container-outside">
+        <header>
+            <div class="container-header">
+                
+
+                <div class="container-header-logout">
+                    <span>Bem vindo, <strong th:text="${session.user.getFirstName()}"></strong></span>
+                    <form th:action="@{/logout}" method="post">
+    					<input type="submit" value="Sair" class="logout link">
+					</form>
+                </div>
+            </div>
+        </header>
+        <div class="container-inside">
+            <div class="container-inside-sidebar">
+                <nav class="container-inside-sidebar-nav">
+                    <div class="container-inside-sidebar-nav-container">
+                        <svg class="inside-pages-icon">
+                            <use xlink:href="images/sprite.svg#icon-box"></use>
+                        </svg>
+                        <a href="products" class="link"><span class="container-inside-sidebar-nav-list-parent">Produtos</span></a>                       
+                    </div>
+
+                    <div class="container-inside-sidebar-nav-container">
+                        <svg class="inside-pages-icon">
+                            <use xlink:href="images/sprite.svg#icon-box-filled"></use>
+                        </svg>
+                        <a href="categories" class="link"><span class="container-inside-sidebar-nav-list-parent">Categorias</span></a>                       
+                    </div>
+
+                    <ul class="container-inside-sidebar-nav-list">
+                        <div class="container-inside-sidebar-nav-container">
+                            <svg class="inside-pages-icon truck">
+                                <use xlink:href="images/sprite.svg#icon-truck"></use>
+                            </svg>
+                            <a href="providers" class="link"><span class="container-inside-sidebar-nav-list-parent">Fornecedores</span></a>                           
+                        </div>
+                        <a href="providers" class="link"><li class="container-inside-sidebar-nav-list-item" style="background-color: #244661;">Listagem de Fornecedores</li></a>
+                        <a href="showProviderForm" class="link"><li class="container-inside-sidebar-nav-list-item">Cadastro de Fornecedor</li></a>
+                    </ul>
+
+                    <div class="container-inside-sidebar-nav-container">
+                        <svg class="inside-pages-icon">
+                            <use xlink:href="images/sprite.svg#icon-streetsign"></use>
+                        </svg>
+                        <a href="storagePlaces" class="link"><span class="container-inside-sidebar-nav-list-parent">Locais de Armazenamento</span></a>                       
+                    </div>
+
+                    <div class="container-inside-sidebar-nav-container">
+                        <svg class="inside-pages-icon">
+                            <use xlink:href="images/sprite.svg#icon-document-list"></use>
+                        </svg>
+                        <a href="#" class="link"><span class="container-inside-sidebar-nav-list-parent">Relatorios</span></a>                       
+                    </div>
+
+                    <div class="container-inside-sidebar-nav-container">
+                        <svg class="inside-pages-icon">
+                            <use xlink:href="images/sprite.svg#icon-trending_up"></use>
+                        </svg>
+                        <a href="dashboard" class="link"><span class="container-inside-sidebar-nav-list-parent">Dashboard</span></a>                       
+                    </div>
+                </nav>
+            </div>
+
+            <div class="container-inside-list">
+                <h2 class="container-inside-list-title">Listagem de Fornecedores</h2>
+				 <div class="search-container">
+                    <form action="#" th:action="@{/searchProvider}" th:object="${provider}" method="GET" class="search-container-form">
+                        <span class="search-container-form-text">Pesquisar fornecedor: </span>
+                        <input type="text" name="providerName" th:value="${providerName}" class="search-container-form-input">
+                        <input type="submit" value="Pesquisar" class="search-container-form-submit btn-inside">
+                    </form>
+                </div>
+                <table class="container-inside-list-table">
+                    <thead>
+                        <tr>
+                            <th>NOME</th>
+                            <th>CNPJ</th>
+                            <th>UF</th>
+                            <th>CIDADE</th>
+                            <th>Opções</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="provider : ${providers}">
+                            <td th:text=${provider.name}></td>
+                            <td th:text=${provider.cnpj}></td>
+                            <td th:text=${provider.uf}></td>
+                            <td th:text=${provider.city}></td>
+                            <td class="table-data-options">
+                            	<a th:href="@{/showProviderFormForUpdate(providerId=${provider.id})}">
+                                    <svg class="table-icon">
+                                        <use xlink:href="images/sprite.svg#icon-magnifying-glass"></use>
+                                    </svg>
+                                </a>
+
+                                <a th:href="@{/deleteProvider(providerId=${provider.id})}"
+                                	onclick="if (!(confirm('ATENÇÃO! Ao deleter o fornecedor, todos os produtos desse fornecedor também serão deletados, deseja continuar?'))) return false">
+                                    <svg class="table-icon delete">
+                                        <use xlink:href="images/sprite.svg#icon-clear"></use>
+                                    </svg>
+                                 </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                 <span th:if="${providers == null}" class="container-inside-list-result">Nenhum resultado encontrado</span>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
