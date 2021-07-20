@@ -1,6 +1,6 @@
 package com.made4you.controle.web.dao;
 
-import com.made4you.controle.web.entity.User;
+import com.made4you.controle.web.entities.User;
 
 public interface UserDAO {
 	

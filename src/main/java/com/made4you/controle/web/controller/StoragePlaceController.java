@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.made4you.controle.web.entity.StoragePlace;
-import com.made4you.controle.web.entity.User;
+import com.made4you.controle.web.entities.StoragePlace;
+import com.made4you.controle.web.entities.User;
 import com.made4you.controle.web.service.StoragePlaceService;
 import com.made4you.controle.web.service.UserService;
 

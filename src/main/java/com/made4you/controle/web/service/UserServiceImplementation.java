@@ -15,8 +15,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.made4you.controle.web.dao.UserDAO;
-import com.made4you.controle.web.entity.Role;
-import com.made4you.controle.web.entity.User;
+import com.made4you.controle.web.entities.Role;
+import com.made4you.controle.web.entities.User;
 import com.made4you.controle.web.user.CtrlUser;
 
 @Service

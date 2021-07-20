@@ -2,7 +2,7 @@ package com.made4you.controle.web.service;
 
 import java.util.List;
 
-import com.made4you.controle.web.entity.Provider;
+import com.made4you.controle.web.entities.Provider;
 
 
 public interface ProviderService {

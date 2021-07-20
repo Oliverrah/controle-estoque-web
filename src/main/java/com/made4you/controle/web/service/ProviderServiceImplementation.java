@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.made4you.controle.web.dao.ProviderDAO;
-import com.made4you.controle.web.entity.Provider;
+import com.made4you.controle.web.entities.Provider;
 
 @Service
 public class ProviderServiceImplementation implements ProviderService {

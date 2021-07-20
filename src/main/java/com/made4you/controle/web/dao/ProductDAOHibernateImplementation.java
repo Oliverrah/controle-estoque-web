@@ -10,7 +10,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.made4you.controle.web.entity.Product;
+import com.made4you.controle.web.entities.Product;
 
 @Repository
 public class ProductDAOHibernateImplementation implements ProductDAO {

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.made4you.controle.web.dao.StockDAO;
-import com.made4you.controle.web.entity.Stock;
+import com.made4you.controle.web.entities.Stock;
 
 @Service
 public class StockServiceImplementation implements StockService {

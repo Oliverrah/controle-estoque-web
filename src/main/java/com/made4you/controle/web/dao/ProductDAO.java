@@ -2,7 +2,7 @@ package com.made4you.controle.web.dao;
 
 import java.util.List;
 
-import com.made4you.controle.web.entity.Product;
+import com.made4you.controle.web.entities.Product;
 
 public interface ProductDAO {
 	

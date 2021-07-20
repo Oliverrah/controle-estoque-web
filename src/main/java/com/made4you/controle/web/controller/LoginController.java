@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.made4you.controle.web.entity.User;
+import com.made4you.controle.web.entities.User;
 import com.made4you.controle.web.service.UserService;
 import com.made4you.controle.web.user.CtrlUser;
 

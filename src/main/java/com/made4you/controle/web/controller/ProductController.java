@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.made4you.controle.web.entity.Category;
-import com.made4you.controle.web.entity.Product;
-import com.made4you.controle.web.entity.Provider;
-import com.made4you.controle.web.entity.User;
+import com.made4you.controle.web.entities.Category;
+import com.made4you.controle.web.entities.Product;
+import com.made4you.controle.web.entities.Provider;
+import com.made4you.controle.web.entities.User;
 import com.made4you.controle.web.service.CategoryService;
 import com.made4you.controle.web.service.ProductService;
 import com.made4you.controle.web.service.ProviderService;

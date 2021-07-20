@@ -7,7 +7,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.made4you.controle.web.entity.User;
+import com.made4you.controle.web.entities.User;
 
 @Repository
 public class UserDAOHibernateImplementation implements UserDAO{

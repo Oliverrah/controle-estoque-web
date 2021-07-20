@@ -2,7 +2,7 @@ package com.made4you.controle.web.dao;
 
 import java.util.List;
 
-import com.made4you.controle.web.entity.StoragePlace;
+import com.made4you.controle.web.entities.StoragePlace;
 
 public interface StoragePlaceDAO {
 	

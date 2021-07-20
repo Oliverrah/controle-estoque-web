@@ -1,6 +1,6 @@
 package com.made4you.controle.web.service;
 
-import com.made4you.controle.web.entity.Stock;
+import com.made4you.controle.web.entities.Stock;
 
 public interface StockService {
 

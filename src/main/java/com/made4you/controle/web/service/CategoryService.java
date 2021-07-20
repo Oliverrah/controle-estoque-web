@@ -2,7 +2,7 @@ package com.made4you.controle.web.service;
 
 import java.util.List;
 
-import com.made4you.controle.web.entity.Category;
+import com.made4you.controle.web.entities.Category;
 
 public interface CategoryService {
 

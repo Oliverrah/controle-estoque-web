@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.made4you.controle.web.dao.ProductDAO;
-import com.made4you.controle.web.entity.Category;
-import com.made4you.controle.web.entity.Product;
-import com.made4you.controle.web.entity.Provider;
+import com.made4you.controle.web.entities.Category;
+import com.made4you.controle.web.entities.Product;
+import com.made4you.controle.web.entities.Provider;
 
 @Service
 public class ProductServiceImplementation implements ProductService {

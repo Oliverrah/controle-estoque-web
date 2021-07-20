@@ -1,4 +1,4 @@
-package com.made4you.controle.web.entity;
+package com.made4you.controle.web.entities;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -8,7 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.made4you.controle.web.entity.Stock;
+import com.made4you.controle.web.entities.Stock;
 
 @Repository
 public class StockDAOHibernateImplementation implements StockDAO {

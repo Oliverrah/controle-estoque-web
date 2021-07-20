@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.made4you.controle.web.dao.StoragePlaceDAO;
-import com.made4you.controle.web.entity.StoragePlace;
+import com.made4you.controle.web.entities.StoragePlace;
 
 @Service
 public class StoragePlaceServiceImplementation implements StoragePlaceService {

@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.made4you.controle.web.entity.Product;
-import com.made4you.controle.web.entity.Stock;
-import com.made4you.controle.web.entity.StockMovimentation;
-import com.made4you.controle.web.entity.StoragePlace;
-import com.made4you.controle.web.entity.User;
+import com.made4you.controle.web.entities.Product;
+import com.made4you.controle.web.entities.Stock;
+import com.made4you.controle.web.entities.StockMovimentation;
+import com.made4you.controle.web.entities.StoragePlace;
+import com.made4you.controle.web.entities.User;
 import com.made4you.controle.web.service.ProductService;
 import com.made4you.controle.web.service.StockService;
 import com.made4you.controle.web.service.StoragePlaceService;

@@ -12,7 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
-import com.made4you.controle.web.entity.User;
+import com.made4you.controle.web.entities.User;
 import com.made4you.controle.web.service.UserService;
 
 @Component

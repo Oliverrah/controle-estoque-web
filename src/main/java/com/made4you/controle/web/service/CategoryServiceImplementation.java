@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.made4you.controle.web.dao.CategoryDAO;
-import com.made4you.controle.web.entity.Category;
+import com.made4you.controle.web.entities.Category;
 
 @Service
 public class CategoryServiceImplementation implements CategoryService{

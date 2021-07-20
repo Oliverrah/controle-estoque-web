@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.made4you.controle.web.entity.Provider;
-import com.made4you.controle.web.entity.User;
+import com.made4you.controle.web.entities.Provider;
+import com.made4you.controle.web.entities.User;
 import com.made4you.controle.web.service.ProviderService;
 import com.made4you.controle.web.service.UserService;
 
