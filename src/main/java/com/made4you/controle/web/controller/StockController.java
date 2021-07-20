@@ -17,6 +17,8 @@ import com.made4you.controle.web.entities.Stock;
 import com.made4you.controle.web.entities.StockMovimentation;
 import com.made4you.controle.web.entities.StoragePlace;
 import com.made4you.controle.web.entities.User;
+import com.made4you.controle.web.entities.enums.StockOperation;
+import com.made4you.controle.web.exceptions.InsufficienteBalanceException;
 import com.made4you.controle.web.service.ProductService;
 import com.made4you.controle.web.service.StockService;
 import com.made4you.controle.web.service.StoragePlaceService;
@@ -45,20 +47,20 @@ public class StockController {
 				
 		Product product = productService.findyById(productId);
 		
-		model.addAttribute("product", product);
+		model.addAttribute("product", product);		
 		model.addAttribute("stock", new Stock());
-		
+	
 		return "stock_movimentation";
 	}
 	
 	@RequestMapping("/movimentation")
 	public String stockMovimentation(@ModelAttribute("stock") Stock stock, 
-										@RequestParam int operation, 
+										@RequestParam StockOperation StockOperation, 
 										@RequestParam int quantity, 
 										@RequestParam("product.id") Long productId, 
-										@RequestParam("storagePlace.id") Long storagePlaceId) {
+										@RequestParam("storagePlace.id") Long storagePlaceId,
+										Model model) {
 		
-		StockMovimentation stockMovimentation = new StockMovimentation(quantity);
 				
 		Stock stockAlreadyExist = stockService.findByForeignKeyId(productId, storagePlaceId);
 		
@@ -66,21 +68,42 @@ public class StockController {
 			stock = stockAlreadyExist;
 		}
 		
-		Product product = productService.findyById(productId);
+		StockMovimentation stockMovimentation = new StockMovimentation(quantity, StockOperation);
+
+		switch(StockOperation) {
 		
-		product.add(stock);
-		
-		stock.add(stockMovimentation);
+			case PLACEMENT:						
+				stock.addBalance(stockMovimentation);				
+				break;
+				
+			case REMOVAL:				
+				try {
+					stock.removeBalance(stockMovimentation);					
+				}
+				catch(InsufficienteBalanceException exc) {
+															
+					List<StoragePlace> storagePlaces = storagePlaceService.findAll(10);		
+					model.addAttribute("storagePlaces", storagePlaces);
 					
-		if(operation == 1){
-			stock.addBalance(stockMovimentation);
-		}
-		else if(operation == 2) {
-			stock.removeBalance(stockMovimentation);
+					Product product = productService.findyById(productId);
+					model.addAttribute("product", product);
+					
+					model.addAttribute("stock", stock);
+					
+					model.addAttribute("quantity", quantity);
+					
+					boolean selectRaddioButton = true;
+					model.addAttribute("selectRaddioButton", selectRaddioButton);
+					
+					model.addAttribute("exception", exc);
+					
+					return "stock_movimentation";						
+				}
+				break;
 		}
 		
 		stockService.save(stock);
-		
+							
 		return "stock";
 	}
 }

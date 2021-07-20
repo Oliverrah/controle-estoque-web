@@ -111,14 +111,14 @@
                         </div>
 
                         <div class="container-inside-register-stock-movimentation-input">
-                            <span>Seleciona a operação: </span>
+                            <label for="operation" class="container-inside-register-stock-movimentation-input-label">Selecione a operação: </label>
                             <div class="radio-button-container">
                                 <div class="radio-button-container-item">
-                                    <input type="radio" name="operation" id="placement" th:value="1">
+                                    <input type="radio" name="StockOperation" id="placement" th:value="${T(com.made4you.controle.web.entities.enums.StockOperation).PLACEMENT}" required>
                                     <label for="placement">Entrada</label>
                                 </div>
                                 <div class="radio-button-container-item">
-                                    <input type="radio" name="operation" id="removal" th:value="2">
+                                    <input type="radio" th:name="StockOperation" id="removal" th:value="${T(com.made4you.controle.web.entities.enums.StockOperation).REMOVAL}" th:checked="${selectRaddioButton}" required>
                                     <label for="removal">Saída</label>
                                 </div>
                             </div>
@@ -126,9 +126,14 @@
 
                         <div class="container-inside-register-stock-movimentation-input">
                             <label for="quantity" class="container-inside-register-stock-movimentation-input-label" th:value="quantity">Informe a quantidade: </label>
-                            <input type="number" name="quantity" id="quantity" class="container-inside-register-stock-movimentation-input-field">
+                            <input type="number" name="quantity" id="quantity" th:value="${quantity}" class="container-inside-register-stock-movimentation-input-field" required>                           
                         </div>
-
+                        
+                        <div class="stock-container-exception">
+                            <span th:if="${exception != null}" th:text="${exception.getMessage()}" class="error-big"> Não foi possível realizar a operação, a quantidade informada ultrapassa a quantidade disponível em estoque.</span> 
+                            <span th:if="${exception != null}" th:text="'Saldo disponível em estoque: ' + ${stock.getBalance()}" class="info">Saldo disponível em estoque: 7 </span>
+                        </div>
+             
                         <div class="container-inside-register-stock-movimentation-input">
                             <input type="submit" value="Registrar"  class="btn-inside">
                             <a href="" class="btn-link-inside">Voltar</a>                        

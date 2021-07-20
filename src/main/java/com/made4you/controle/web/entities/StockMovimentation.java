@@ -4,12 +4,16 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.made4you.controle.web.entities.enums.StockOperation;
 
 @Entity
 @Table(name="stock_movimentation")
@@ -23,6 +27,10 @@ public class StockMovimentation {
 	@Column(name="quantity")
 	private Integer quantity;
 	
+	@Column(name="operation")
+	@Enumerated(EnumType.STRING)
+	private StockOperation operation;
+	
 	@Column(name="date")
 	private Date date;
 	
@@ -31,17 +39,19 @@ public class StockMovimentation {
 	private Stock stock;
 
 	public StockMovimentation() {
-		
-	}
-
-	public StockMovimentation(Integer quantity) {
-		this.quantity = quantity;
 		this.date = new Date();
 	}
 
-	public StockMovimentation(Long id, Integer quantity) {
+	public StockMovimentation(Integer quantity, StockOperation operation) {
+		this.quantity = quantity;
+		this.operation = operation;
+		this.date = new Date();
+	}
+
+	public StockMovimentation(Long id, Integer quantity, StockOperation operation) {
 		this.id = id;
 		this.quantity = quantity;
+		this.operation = operation;
 		this.date = new Date();
 	}
 
@@ -59,6 +69,14 @@ public class StockMovimentation {
 
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
+	}
+
+	public StockOperation getOperation() {
+		return operation;
+	}
+
+	public void setOperation(StockOperation operation) {
+		this.operation = operation;
 	}
 
 	public Date getDate() {

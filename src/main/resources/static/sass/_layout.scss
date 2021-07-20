@@ -142,7 +142,7 @@ body{
     &-sidebar{
         //background-image: linear-gradient(to bottom, rgba(#244661, 1.0), rgba(#E6E6E6,1.0));
         color: var(--color-light-grey);
-        background-color: #3a3a3a;
+        background-color: var(--color-ligh-black-2);
         flex: 0 0 12%;
         font-size: 1.4rem;
         &-nav{
@@ -416,13 +416,13 @@ body{
             border-top: none;
             border-left: none;
             border-right: none;
-            border-bottom: 1px solid grey;
+            border-bottom: 1px solid var(--color-light-grey);
             padding: 1.5rem;
         }
 
         input:focus{
             outline: none;
-            border-bottom: 3px solid grey;
+            border-bottom: 3px solid var(--color-light-grey);
         }
 
         span{
@@ -475,17 +475,15 @@ body{
         font-size: 2.5rem;
         width: auto;
         height: 15rem;
-        background-color: #4C52ED;
         border-radius: 1rem;
         margin: 0 5rem;
+        background-color: var(--color-dark-orange);
  
         a{
             padding: 8rem;
             text-decoration: none;
-            color: var(--color-white);
-           
+            color: var(--color-white);         
         }
-
     }
 
     &-choice:hover{
@@ -500,18 +498,16 @@ body{
     width: 50%;
     margin: 4rem auto;
     padding: 2rem;
-    border: 1px solid black;
+    border: 1px solid var(--color-black);
     box-shadow: 5px 5px 10px -2px rgba(0,0,0,0.8);
-
     &-input{
         font-size: 1.5rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin: 4rem;
+        margin: 4rem;       
         
-
-        &-label, span{
+        &-label{
             flex: 0 0 50%;
    
         }
@@ -519,7 +515,6 @@ body{
         &-field{
             flex: 1;            
         }
-
 
         .radio-button-container{
             display: flex;
@@ -536,7 +531,14 @@ body{
                 }
                 
             }
-        }
+        }      
+    }
 
+    .stock-container-exception{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 8rem;
     }
 }

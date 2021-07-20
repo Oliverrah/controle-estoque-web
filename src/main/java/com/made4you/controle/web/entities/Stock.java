@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.made4you.controle.web.exceptions.InsufficienteBalanceException;
+
 @Entity
 @Table(name="stock")
 public class Stock{
@@ -101,18 +103,24 @@ public class Stock{
 	}
 
 	public void addBalance(StockMovimentation stockMovimentation) {		
-			
+				
 		if(stockMovimentation.getQuantity() > 0) {
 			this.balance += stockMovimentation.getQuantity();
+			this.add(stockMovimentation);
 		}
 	}
 	
 	public void removeBalance(StockMovimentation stockMovimentation) {
 		
-		if(stockMovimentation.getQuantity() > 0) {
-			if(this.balance - stockMovimentation.getQuantity() >= 0) {
+		int balanceResult = this.balance - stockMovimentation.getQuantity();
+		
+		if(stockMovimentation.getQuantity() > 0 && balanceResult >= 0) {			
 				this.balance -= stockMovimentation.getQuantity();
-			}
+				this.add(stockMovimentation);
+		}
+		
+		else {
+			throw new InsufficienteBalanceException("Não há saldo suficiente disponível para esse produto");
 		}
 	}
 	
