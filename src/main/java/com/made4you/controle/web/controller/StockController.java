@@ -59,9 +59,14 @@ public class StockController {
 										@RequestParam int quantity, 
 										@RequestParam("product.id") Long productId, 
 										@RequestParam("storagePlace.id") Long storagePlaceId,
-										Model model) {
+										Model model,
+										HttpServletRequest request) {
 		
 				
+		HttpSession currentSession = request.getSession();		
+		User user = (User) currentSession.getAttribute("user");	
+		int userId = user.getId();
+		
 		Stock stockAlreadyExist = stockService.findByForeignKeyId(productId, storagePlaceId);
 		
 		if(stockAlreadyExist != null) {
@@ -82,7 +87,7 @@ public class StockController {
 				}
 				catch(InsufficienteBalanceException exc) {
 															
-					List<StoragePlace> storagePlaces = storagePlaceService.findAll(10);		
+					List<StoragePlace> storagePlaces = storagePlaceService.findAll(userId);		
 					model.addAttribute("storagePlaces", storagePlaces);
 					
 					Product product = productService.findyById(productId);
