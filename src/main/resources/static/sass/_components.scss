@@ -164,10 +164,13 @@
 }
 
 .delete{
-    fill: red;
+    fill: red;   
 }
 
-
+.disable{
+    pointer-events: none;
+    appearance: none;
+}
 
 
 //HIDDING SPIN ARROWS FOR INPUT NUMBERS
