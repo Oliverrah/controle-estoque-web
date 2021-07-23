@@ -36,7 +36,7 @@ public class Product {
 	private Double custPrice;
 	
 	@Column(name="sell_price")
-	@NotNull(message="Informe o preço de custo.")
+	@NotNull(message="Informe o preço de venda.")
 	@Min(value = 0)
 	private Double sellPrice;
 	

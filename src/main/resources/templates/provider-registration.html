@@ -81,20 +81,20 @@
 	
                     <div class="container-inside-register-form-input">
                         <label for="name">Nome: </label>
-                        <input type="text" th:field="*{name}">
+                        <input type="text" th:field="*{name}" placeholder="Digite o nome do fornecedor...">
                         <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></span>
                     </div>
 
                     <div class="container-inside-register-form-input">
                         <label for="name">CNPJ: </label>
-                        <input type="text" th:field="*{cnpj}">
+                        <input type="text" th:field="*{cnpj}" placeholder="Digite o número do CNPJ. (Apenas números)">
                         <span th:if="${#fields.hasErrors('cnpj')}" th:errors="*{cnpj}" class="error"></span>
                     </div>
    
                     <div class="container-inside-register-form-prices">                                                      
                         <div>
                             <label for="gtin">CEP: </label>
-                            <input type="text" th:field="*{adressZipCode}">
+                            <input type="text" th:field="*{adressZipCode}"  placeholder="Digite o CEP...">
                             <span th:if="${#fields.hasErrors('adressZipCode')}" th:errors="*{adressZipCode}" class="error"></span>
                         </div>
 
@@ -102,28 +102,53 @@
                             <label for="unity">UF: </label>
                             <select name="unity" id="unity" th:field="*{uf}">
                             	<option th:selected="selected" value="">Selecione a UF</option>
-                                <option th:value="PB">PB</option>
-                                <option th:value="MG">MG</option>
+                                <option th:value="AC">AC</option>
+								<option th:value="AL">AL</option>
+								<option th:value="AP">AP</option>
+								<option th:value="AM">AM</option>
+								<option th:value="BA">BA</option>
+								<option th:value="CE">CE</option>
+								<option th:value="DF">DF</option>
+								<option th:value="MG">ES</option>
+								<option th:value="GO">GO</option>
+								<option th:value="MA">MA</option>
+								<option th:value="MT">MT</option>
+								<option th:value="MS">MS</option>
+								<option th:value="MG">MG</option>
+								<option th:value="PA">PA</option>
+								<option th:value="PB">PB</option>
+								<option th:value="PR">PR</option>
+								<option th:value="PE">PE</option>
+								<option th:value="PI">PI</option>
+								<option th:value="RJ">RJ</option>
+								<option th:value="RN">RN</option>
+								<option th:value="RS">RS</option>
+								<option th:value="RO">RO</option>
+								<option th:value="RR">RR</option>
+								<option th:value="SC">SC</option>
+								<option th:value="SP">SP</option>
+								<option th:value="SE">SE</option>
+								<option th:value="TO">TO</option>
                             </select>
                             <span th:if="${#fields.hasErrors('uf')}" th:errors="*{uf}" class="error"></span>
                         </div>
 
                         <div>
                             <label for="gtin">Cidade: </label>
-                            <input type="text" th:field="*{city}">
+                            <input type="text" th:field="*{city}" placeholder="Digite a cidade...">
                             <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}" class="error"></span>
                         </div>                                 
                     </div>
 
                     <div class="container-inside-register-form-input">
                         <label for="name">Logradouro: </label>
-                        <input type="text" th:field="*{adressStreet}">
+                        <input type="text" th:field="*{adressStreet}" placeholder="Informe o nome da rua...">
                         <span th:if="${#fields.hasErrors('adressStreet')}" th:errors="*{adressStreet}" class="error"></span>
                     </div>
 
                     <div class="container-inside-register-form-input">
                         <label for="name">Número: </label>
-                        <input type="text" th:field="*{adressNumber}">
+                        <input type="text" th:field="*{adressNumber}" placeholder="Informe o número do endereço...">
                         <span th:if="${#fields.hasErrors('adressNumber')}" th:errors="*{adressNumber}" class="error"></span>
                         <span th:if="${registrationError != null}" class="error-big">Não foi possível realizar o cadastro, já existe um fornecedor com esse CNPJ.</span>
                     </div>

@@ -124,11 +124,7 @@
 
                         <div>
                             <label for="unity">Unidade de medida: </label>
-                            <select name="unity" id="unity" th:field="*{unit}" required="required">
-                            	<option th:selected="selected" value="">Selecione </option>
-                                <option th:value="KG">KG</option>
-                                <option th:value="UND">UND</option>
-                            </select>
+                            <input type="text" th:field="*{unit}" placeholder="Digite a unidade de medida..."/>                            
                             <span th:if="${#fields.hasErrors('unit')}" th:errors="*{unit}" class="error"></span>
                         </div>
                     </div>

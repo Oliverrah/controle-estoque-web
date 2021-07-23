@@ -79,7 +79,7 @@
 					
                     <div class="container-inside-register-form-input">
                         <label for="name">Nome: </label>
-                        <input type="text" th:field="*{name}">
+                        <input type="text" th:field="*{name}" placeholder="Digite o nome da categoria...">
                         <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error-big"></span>
                         <span th:if="${registrationError != null}" class="error-big">Não foi possível realizar o cadastro, já existe uma categoria com esse nome</span>
                     </div>
