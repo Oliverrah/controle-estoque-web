@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controla Web - Movimentação de Estoque</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/script.js"></script>
+</head>
+<body>
+    <div class="container-outside">
+        <header>
+            <div class="container-header">                
+                <div class="container-header-logout">
+                    <span>Bem vindo, <strong th:text="${session.user.getFirstName()}"></strong></span>
+                    <form th:action="@{/logout}" method="post">
+    					<input type="submit" value="Sair" class="logout link">
+					</form>
+                </div>
+            </div>
+        </header>
+        <div class="container-inside">
+            <div class="container-inside-sidebar">
+                <nav class="container-inside-sidebar-nav">
+                    <div class="container-inside-sidebar-nav-container">
+                        <svg class="inside-pages-icon">
+                            <use xlink:href="images/sprite.svg#icon-box"></use>
+                        </svg>
+                        <a href="products" class="link"><span class="container-inside-sidebar-nav-list-parent">Produtos</span></a>                       
+                    </div>
+
+                    <div class="container-inside-sidebar-nav-container">
+                        <svg class="inside-pages-icon">
+                            <use xlink:href="images/sprite.svg#icon-box-filled"></use>
+                        </svg>
+                        <a href="categories" class="link"><span class="container-inside-sidebar-nav-list-parent">Categorias</span></a>                       
+                    </div>
+
+                  
+                    <div class="container-inside-sidebar-nav-container">
+                        <svg class="inside-pages-icon truck">
+                            <use xlink:href="images/sprite.svg#icon-truck"></use>
+                        </svg>
+                        <a href="providers" class="link"><span class="container-inside-sidebar-nav-list-parent">Fornecedores</span></a>                           
+                    </div>
+
+                    <div class="container-inside-sidebar-nav-container">
+                        <svg class="inside-pages-icon">
+                            <use xlink:href="images/sprite.svg#icon-streetsign"></use>
+                        </svg>
+                        <a href="storagePlaces" class="link"><span class="container-inside-sidebar-nav-list-parent">Locais de Armazenamento</span></a>                       
+                    </div>
+
+                    <div class="container-inside-sidebar-nav-container">
+                        <svg class="inside-pages-icon">
+                            <use xlink:href="images/sprite.svg#icon-document-list"></use>
+                        </svg>
+                        <a href="#" class="link"><span class="container-inside-sidebar-nav-list-parent">Relatorios</span></a>                       
+                    </div>
+
+                    <div class="container-inside-sidebar-nav-container">
+                        <svg class="inside-pages-icon">
+                            <use xlink:href="images/sprite.svg#icon-trending_up"></use>
+                        </svg>
+                        <a href="dashboard" class="link"><span class="container-inside-sidebar-nav-list-parent">Dashboard</span></a>                       
+                    </div>
+
+                    <ul class="container-inside-sidebar-nav-list">
+                        <div class="container-inside-sidebar-nav-container">
+                            <svg class="inside-pages-icon truck">
+                                <use xlink:href="images/sprite.svg#icon-stack"></use>
+                            </svg>
+                            <a href="#" class="link"><span class="container-inside-sidebar-nav-list-parent">Estoque</span></a>                           
+                        </div>
+                        <a href="#" class="link"><li class="container-inside-sidebar-nav-list-item" style="background-color: #244661;">Listagem de produtos em estoque</li></a>
+                        <a href="#" class="link"><li class="container-inside-sidebar-nav-list-item">Movimentar Produto</li></a>
+                        <a href="#" class="link"><li class="container-inside-sidebar-nav-list-item">Transferir produtos alocado.</li></a>
+                    </ul>
+
+
+
+                </nav>
+            </div>
+
+            <div class="container-inside-register">
+             
+               <h1 class="title">Listagem de produtos em estoque</h1>
+
+               <div class="search-container">
+                   <form action="" class="search-container-form">
+                    <label for="" class="search-container-form-text">Pesquisar por: </label>
+                    <select name="" id="" class="search-container-form-input">
+                        <option value="">Produtos</option>
+                        <option value="">Local de Armazenamento</option>
+                    </select>
+                    <input type="submit" value="Pesquisar" class="search-container-form-submit btn-inside">
+                    </form>
+               </div>
+
+               <div class="result">
+                   <div class="result-container-header" id="teste" onclick="showItemList(this)">
+                        <a href="#" class="result-list-header">Heineken</a>
+
+                        <svg class="result-list-icon">
+                            <use xlink:href="/static/images/sprite.svg#icon-keyboard_arrow_down"></use>
+                        </svg>
+                   </div>
+                                      
+                    <ul class="result-list-content" id="parent">
+                        <li class="result-list-content-item list-result">                            
+                                <span class="result-list-content-item-text">Galpão Principal</span>
+                                <span class="result-list-content-item-stock">Em estoque: 50 UND</span>                          
+                        </li>
+                        <li class="result-list-content-item list-result">Galpão Secundário</li>
+                        <li class="result-list-content-item list-result">Mostruário</li>
+                    </ul>
+               </div>
+
+               <div class="result">
+                <div class="result-container-header" onclick="showItemList(this)">
+                    <a href="#" class="result-list-header">Feijão Carioca</a>
+                    <svg class="result-list-icon">
+                        <use xlink:href="/static/images/sprite.svg#icon-keyboard_arrow_down"></use>
+                    </svg>
+                </div>
+                    <ul class="result-list-content" id="parent">
+                        <li class="result-list-content-item list-result">Galpão Principal</li>
+                        <li class="result-list-content-item list-result">Galpão Secundário</li>
+                        <li class="result-list-content-item list-result">Mostruário</li>
+                    </ul>
+                
+               </div>
+
+               <div class="result">
+                <div class="result-container-header" onclick="showItemList(this)">
+                    <a href="#" class="result-list-header">Monitor 29"</a>
+                    <svg class="result-list-icon">
+                        <use xlink:href="/static/images/sprite.svg#icon-keyboard_arrow_down"></use>
+                    </svg>
+                </div>
+
+                <ul class="result-list-content" id="parent">
+                    <li class="result-list-content-item list-result">Galpão Principal</li>
+                    <li class="result-list-content-item list-result">Galpão Secundário</li>
+                    <li class="result-list-content-item list-result">Mostruário</li>
+                </ul>
+           </div>
+                
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -64,7 +64,7 @@ public class LoginController {
 				
 		User userExists = userService.findByUserName(userName);
 		if(userExists != null) {
-			model.addAttribute("ctrlUser", new CtrlUser());
+			model.addAttribute("ctrlUser", ctrlUser);
 			model.addAttribute("registrationError", "Já existe um usuário com esse nome.");
 			return "user-registration";
 		}

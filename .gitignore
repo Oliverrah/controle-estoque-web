@@ -16,6 +16,19 @@ target/
 #Dependency directories
 node_modules/
 
+#Eclipse directories
+.metadata/
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
 # Package Files #
 *.jar
 *.war
