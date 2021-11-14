@@ -89,7 +89,7 @@
                     <div class="container-inside-register-form-category">
                         <div class="container-inside-register-form-label">
                             <label for="category">Categoria: </label>
-                            <a href="#" class="link-form"><span>Cadastrar</span></a>
+                            <a href="showCategoryForm" class="link-form"><span>Cadastrar</span></a>
                         </div>
                         <select name="category" th:field="*{category.id}" required="required">
                         	<option th:selected="selected" th:value=${null}>Selecione a categoria</option>    
@@ -133,7 +133,7 @@
                     <div class="container-inside-register-form-input">
                         <div class="container-inside-register-form-label">
                             <label for="provider">Fornecedor: </label>
-                            <a href="#" class="link-form"><span>Cadastrar</span></a>
+                            <a href="showProviderForm" class="link-form"><span>Cadastrar</span></a>
                         </div>
                         <select name="provider" th:field="*{provider.id}" required="required">
                       		<option th:selected="selected" th:value=${null}>Selecione o fornecedor</option>
